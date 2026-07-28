@@ -14,7 +14,17 @@ function calculateTotal(expenses=[]) { // should return the total amount spent.
 }
 
 function calculateCategoryTotal(expenses=[], category='') { // should return the total for one category.
+    let total = 0;
 
+    function categoryExpensesHelperFunc (value) {
+        if (value.category === category) {
+            total += value.amount;
+        }
+    }
+
+    expenses.forEach(categoryExpensesHelperFunc);
+
+    return total;
 }
 
 function findLargestExpense(expenses=[]) { // should return the full expense object with the largest amount.
@@ -34,7 +44,7 @@ const expenses = [
   { id: 4, category: 'books', amount: 40 },
 ];
 
-console.log(calculateTotal(expenses));
+console.log(calculateCategoryTotal(expenses, 'food'));
 // console.log(createExpenseSummary(expenses));
 // console.log(calculateCategoryTotal(expenses, 'food'));
 // console.log(calculateCategoryTotal(expenses, 'health'));
