@@ -42,7 +42,14 @@ function findLargestExpense(expenses=[]) { // should return the full expense obj
 }
 
 function createExpenseSummary(expenses=[]) { // should return total, foodTotal, transportTotal, and largestExpense.
-    
+    const summary = {
+        total: calculateTotal(expenses),
+        foodTotal: calculateCategoryTotal(expenses, 'food'),
+        transportTotal: calculateCategoryTotal(expenses, 'transport'),
+        largestExpense: findLargestExpense(expenses)
+    }
+
+    return summary;
 }
 
 // TEST
@@ -54,8 +61,7 @@ const expenses = [
   { id: 4, category: 'books', amount: 40 },
 ];
 
+console.log(createExpenseSummary(expenses));
+console.log(calculateCategoryTotal(expenses, 'food'));
+console.log(calculateCategoryTotal(expenses, 'health'));
 console.log(findLargestExpense(expenses));
-// console.log(createExpenseSummary(expenses));
-// console.log(calculateCategoryTotal(expenses, 'food'));
-// console.log(calculateCategoryTotal(expenses, 'health'));
-// console.log(findLargestExpense(expenses));
