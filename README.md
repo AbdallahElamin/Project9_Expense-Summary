@@ -7,4 +7,4 @@ node expense-summary.js
 Yep, That's it.
 
 The project URL:
-https://roadmap.sh/projects/js-grade-report-generator
+https://roadmap.sh/projects/js-expense-summary
